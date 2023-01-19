@@ -8,6 +8,8 @@ export interface registerResponse{
 }
 
 export interface loginResponse{
+  id:Number;
+  user_name:String;
   msg:string;
   status:boolean;
   token:string
@@ -88,14 +90,18 @@ export class UserComponent implements OnInit {
     }
     this.userService.login(loginBody).subscribe(
       (info)=>{
+        
         if(info==undefined){
           alert('Failure, please try again')
         }
         if(info.status==true){
-          //console.log(info.token)
           sessionStorage.setItem('jwt_token',info.token)
+          userService.userId=info.id;
+          userService.userName=info.user_name;
         }else{
           sessionStorage.removeItem('jwt_token')
+          userService.userId=null;
+          userService.userName=null;
         }
         alert(info.msg)
       }

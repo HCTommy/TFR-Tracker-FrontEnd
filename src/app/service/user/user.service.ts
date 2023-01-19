@@ -8,6 +8,9 @@ import { loginResponse, registerResponse } from "src/app/components/user/user.co
 
 export class userService{
 
+    static userId:any=null;
+    static userName:any=null;
+
     url_register='http://localhost:8080/register'
 
     url_login = 'http://localhost:8080/login'

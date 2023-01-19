@@ -7,25 +7,17 @@ import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
 import { MatSort,Sort } from '@angular/material/sort';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
-import { getDateString } from 'src/app/utils/util';
-import { dateFormat, statusList } from 'src/app/constant/constant';
-
+import { dateFormat, statusList } from 'src/app/shared/constants';
+import { DatePipe } from '@angular/common';
 
 
 export interface PeriodicElement {
   id: String;
   name: String;
   vendor_id: String;
-  start_date: String;
-  end_date:String;
+  start_date: Date;
+  end_date:Date;
   status:String;
-  version:String;
-  vendor_specific:String;
-  is_deleted:String;
-  created_by:String;
-  modified_by:String;
-  created_at:String;
-  modified_at:String
 }
 
 @Component({
@@ -67,7 +59,7 @@ export class TfrsComponent implements OnInit, AfterViewInit {
 
   projectPostBody:any={};
 
-  constructor(private tfrService:tfrService,private liveAnnouncer: LiveAnnouncer){
+  constructor(private tfrService:tfrService,private liveAnnouncer: LiveAnnouncer,private datePipe:DatePipe){
 
   }
 
@@ -88,10 +80,11 @@ export class TfrsComponent implements OnInit, AfterViewInit {
   getProjects():void{
     this.projectPostBody={}
     if(this.startAfterDate.value!=undefined){
-      this.projectPostBody["start_date_after"]=getDateString(this.startAfterDate)+" 00:00:00";
+      this.projectPostBody["start_date_after"]=this.datePipe.transform(this.startAfterDate.value,'yyyy-MM-dd 00:00:00')
+
     }
     if(this.endBeforeDate.value!=undefined){
-      this.projectPostBody["end_date_before"]=getDateString(this.endBeforeDate)+" 23:59:59"
+      this.projectPostBody["end_date_before"]=this.datePipe.transform(this.endBeforeDate.value,'yyyy-MM-dd 00:00:00')
     }
     if(this.selectedVendorName!=undefined){
       this.projectPostBody["vendor_name"]=this.selectedVendorName;

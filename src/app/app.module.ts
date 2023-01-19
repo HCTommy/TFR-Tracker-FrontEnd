@@ -39,7 +39,7 @@ import { MilestoneTableComponent } from './components/milestone-table/milestone-
 import { TfrCreationDialogComponent } from './components/tfr-creation-dialog/tfr-creation-dialog.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-// import { MatPaginatorIntl } from '@angular/material/paginator';
+import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -70,7 +70,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TfrCreationDialogComponent,
   ],
 
-  providers: [ChartsService, WidgetVendorLocationService, WidgetVendorProjectCountService,{
+  providers: [ChartsService, WidgetVendorLocationService, WidgetVendorProjectCountService,DatePipe,{
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
     multi: true,

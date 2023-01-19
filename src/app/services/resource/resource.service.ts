@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { APPCONSTANTS } from 'src/app/shared/app.constants';
+import { APPCONSTANTS } from 'src/app/shared/constants';
 import { ResourceListType } from 'src/app/types/types';
 
 @Injectable({

@@ -1,5 +1,8 @@
 export const prodEnv = false;
 
+export const dateFormat = 'MM/DD/YYYY'
+export const statusList = ['DRAFT','INPROGRESS','ARCHIVED','DELIVERED']
+
 class API_CONSTANTS {
   ENV: string = prodEnv ? 'PROD' : 'DEV';
   BASE_URL: string = prodEnv
