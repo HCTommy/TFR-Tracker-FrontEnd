@@ -84,7 +84,7 @@ export class TfrsComponent implements OnInit, AfterViewInit {
 
     }
     if(this.endBeforeDate.value!=undefined){
-      this.projectPostBody["end_date_before"]=this.datePipe.transform(this.endBeforeDate.value,'yyyy-MM-dd 00:00:00')
+      this.projectPostBody["end_date_before"]=this.datePipe.transform(this.endBeforeDate.value,'yyyy-MM-dd 23:59:59')
     }
     if(this.selectedVendorName!=undefined){
       this.projectPostBody["vendor_name"]=this.selectedVendorName;
