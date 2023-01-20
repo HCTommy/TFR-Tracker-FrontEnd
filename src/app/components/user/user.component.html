@@ -1,5 +1,5 @@
-
-<div class="" [formGroup]="registerGroup" [hidden]="!registering">
+<div class="page-container">
+<div class="child-container" [formGroup]="registerGroup" [hidden]="!registering">
     <p>Register</p>
     <div class="register-container">
         <mat-form-field appearance="fill">
@@ -37,7 +37,7 @@
 </div>
 
 
-<div class="" [formGroup]="logginGroup" [hidden]="!logging">
+<div class="child-container" [formGroup]="logginGroup" [hidden]="!logging">
     <p>Login</p>
     <div class="register-container">
         <mat-form-field appearance="fill">
@@ -60,6 +60,8 @@
         </div>
     </section>
     
+</div>
+
 </div>
 
 
